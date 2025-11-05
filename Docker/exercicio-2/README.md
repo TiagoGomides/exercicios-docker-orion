@@ -1,13 +1,13 @@
 # Exercício 2 — Compose com API + Banco de Dados
 
-## 🎯 Objetivo
+## Objetivo
 Aprender a conectar múltiplos containers (**API + Banco de Dados**) usando **Docker Compose** e variáveis de ambiente externas (`.env`).
 
 O resultado final é uma stack com uma **API Node.js** conectada a um **PostgreSQL** persistente.
 
 ---
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 exercicio-2/
