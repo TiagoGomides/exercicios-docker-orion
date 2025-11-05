@@ -1,0 +1,14 @@
+{
+  "name": "exercicio-02-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "pg": "^8.12.0"
+  }
+}
