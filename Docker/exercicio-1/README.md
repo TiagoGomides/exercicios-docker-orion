@@ -1,6 +1,6 @@
 # Exercício 1 — Dockerfile + Compose: “Hello Container”
 
-## 🎯 Objetivo
+## Objetivo
 Aprender a criar uma imagem customizada a partir de um **Dockerfile** e orquestrar a execução com o **Docker Compose**.
 
 O resultado final é uma aplicação simples em **Node.js** que exibe:
@@ -9,7 +9,7 @@ O resultado final é uma aplicação simples em **Node.js** que exibe:
 
 ---
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 exercicio-1/

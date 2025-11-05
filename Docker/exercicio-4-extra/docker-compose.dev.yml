@@ -1,0 +1,65 @@
+name: exercicio-3-dev
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ex3_db_dev
+    environment:
+      POSTGRES_USER: ${DB_USER:-appuser}
+      POSTGRES_PASSWORD: ${DB_PASS:-supersecret}
+      POSTGRES_DB: ${DB_NAME:-appdb}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+      - ./api/db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-appuser} -d ${DB_NAME:-appdb}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ex3_net
+
+  api:
+    build:
+      context: ./api
+      target: dev
+    container_name: ex3_api_dev
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-3000}:3000"
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: unless-stopped
+    networks:
+      - ex3_net
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: ex3_pgadmin_dev
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@local.test}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin123}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${PGADMIN_LISTEN_PORT:-8080}:80"
+    networks:
+      - ex3_net
+
+volumes:
+  pgdata_dev:
+
+networks:
+  ex3_net:
+    name: ex3_net
