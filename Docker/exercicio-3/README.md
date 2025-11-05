@@ -1,6 +1,6 @@
 
 # Exercício 3 — Boas Práticas + Múltiplos Ambientes
-### 🎯 Objetivo
+### Objetivo
 
 Aplicar boas práticas de `build` e configuração de ambientes (`dev/prod`) usando `Dockerfile multi-stage` e dois arquivos `Compose`.
 
@@ -10,7 +10,7 @@ O resultado final é a mesma API do exercício anterior, agora com:
 
 **prod**: build otimizado, sem volumes, imagem final leve.
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 ```bash
 exercicio-3/
