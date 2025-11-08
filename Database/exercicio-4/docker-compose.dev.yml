@@ -1,0 +1,15 @@
+services:
+  api:
+    build:
+      context: ./api
+      target: dev
+    container_name: ex4_api_dev
+    environment:
+      PORT: 3000
+      DB_NAME: blog
+      MONGO_URI: mongodb://orion_admin:orion_admin_pass@host.docker.internal:27017/?authSource=admin
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api/src:/app/src
+    command: npm run dev

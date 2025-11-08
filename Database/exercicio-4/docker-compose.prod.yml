@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: ex4_mongo_prod
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet -u root -p root --authenticationDatabase admin
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./api
+      target: prod
+    container_name: ex4_api_prod
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      DB_NAME: blog
+      MONGO_URI: mongodb://root:root@mongo:27017/?authSource=admin
+    ports:
+      - "3000:3000"
