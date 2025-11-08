@@ -122,4 +122,4 @@ ORDER BY a.id;
 | 1  | Aline Duarte  | [aline.duarte@gmail.com](mailto:aline.duarte@gmail.com)  | Frontend Essentials |
 | 2  | Tiago Gomides  | [gomidestiago@outlook.com](mailto:gomidestiago@outlook.com)  | Frontend Essentials |
 | 3  | Clara Nogueira| [clara_1nogueira@hotmail.com](mailto:clara_1nogueira@hotmail.com) | Cloud & Containers |
-| 4  | Diego Moreira | [diego.moreira1@gmail.com](mailto:diego.moreira1@gmail.com) | Cloud & Containers |
+| 4  | Diego Moreira | [diego.moreira1@gmail.com](mailto:diego.moreira1@gmail.com) | Data Analytics |
