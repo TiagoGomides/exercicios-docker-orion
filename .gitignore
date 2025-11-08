@@ -29,3 +29,5 @@ Desktop.ini
 *.code-workspace
 .idea/
 *.iml
+npm-cache
+.git
